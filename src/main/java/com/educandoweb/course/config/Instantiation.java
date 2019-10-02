@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.educandoweb.course.domain.Post;
 import com.educandoweb.course.domain.User;
+import com.educandoweb.course.dto.AuthorDTO;
 import com.educandoweb.course.repository.PostRepository;
 import com.educandoweb.course.repository.UserRepository;
 
@@ -40,8 +41,10 @@ public class Instantiation implements CommandLineRunner {
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
 		
 		//Declarando o obj da classe Post
-		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo", maria);
-		Post post2 = new Post(null, sdf.parse("23/03/2018"), "bom dia", "acordei feliz", maria);
+		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo", 
+				new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/03/2018"), "bom dia", "acordei feliz", 
+				new AuthorDTO(maria));
 		
 		//salvar os obj no BD
 		userRepository.saveAll(Arrays.asList(maria,alex, bob));
