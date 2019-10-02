@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.educandoweb.course.domain.User;
+import com.educandoweb.course.dto.UserDTO;
 import com.educandoweb.course.repository.UserRepository;
 import com.educandoweb.course.services.exception.ObjectNotFoundException;
 
@@ -26,5 +27,14 @@ public class UserService {
 		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
-
+	
+	//Declarando metado para inserir no BD
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+		
+	}
 }
