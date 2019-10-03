@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.educandoweb.course.domain.Post;
 import com.educandoweb.course.domain.User;
 import com.educandoweb.course.dto.AuthorDTO;
+import com.educandoweb.course.dto.CommentDTO;
 import com.educandoweb.course.repository.PostRepository;
 import com.educandoweb.course.repository.UserRepository;
 
@@ -45,6 +46,14 @@ public class Instantiation implements CommandLineRunner {
 				new AuthorDTO(maria));
 		Post post2 = new Post(null, sdf.parse("23/03/2018"), "bom dia", "acordei feliz", 
 				new AuthorDTO(maria));
+		
+		//Declarando o obj da classe CommentDTO
+		CommentDTO c1 = new CommentDTO("boa viagem", sdf.parse("21/03/2018"), new AuthorDTO(alex));
+		CommentDTO c2 = new CommentDTO("aprovaite", sdf.parse("22/03/2018"), new AuthorDTO(bob));
+		CommentDTO c3 = new CommentDTO("tenha um otimo dia", sdf.parse("23/03/2018"), new AuthorDTO(alex));
+		
+		post1.getComments().addAll(Arrays.asList(c1,c2));
+		post2.getComments().addAll(Arrays.asList(c3));
 		
 		//salvar os obj no BD
 		userRepository.saveAll(Arrays.asList(maria,alex, bob));
