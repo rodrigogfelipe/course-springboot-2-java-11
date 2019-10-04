@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.educandoweb.course.resources.exception.StandardError;
 
-// Classe para tratar error nas possiveis requisições
+// Classe ResourceExceptionHandler para tratar error nas possiveis requisições
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	
-	// Declarando metafo
+	// Declarando metado ResponseEntity. objectNotFound recebe os parametros para o tratamento
 	@ExceptionHandler(ObjectNotFoundException.class)
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {
 		
-		HttpStatus status = HttpStatus.NOT_FOUND;
+		HttpStatus status = HttpStatus.NOT_FOUND; /*NOT_FOUND error 404*/
 		StandardError err = new StandardError(System.currentTimeMillis(), status.value(), "Não encontrado", 
 				e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.educandoweb.course.domain.Post;
 
-/*USER nome da classe e o tipo da ID string*/
+/*Buscar posts contendo um dado string no título". Em PostRepository, criar o método de busca */
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 	
@@ -18,7 +18,7 @@ public interface PostRepository extends MongoRepository<Post, String> {
 	
 	List<Post> findByTitleContainingIgnoreCase(String text);
 	
-	// Comparando as datas entre minimas e maximas
+	//Criar o método de consulta .  Comparando as datas entre minimas e maximas
 	@Query("{ $and: [ { date: {$gte: ?1} }, { date: { $lte: ?2} } , "
 			+ "{ $or: [ { 'title': { $regex: ?0, $options: 'i' } }, "
 			+ "{ 'body': { $regex: ?0, $options: 'i' } }, { 'comments.text': { $regex: ?0, $options: 'i' } } ] } ] }" )

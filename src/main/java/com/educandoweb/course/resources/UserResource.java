@@ -25,8 +25,11 @@ public class UserResource {
 	// Declarando a classe UserService
 	@Autowired
 	private UserService service;
-
+	
+	/*Em UserResource, criar o método para retornar os posts de um dado usuário */
+	/*RequestMethod.GET obter informações*/
 	@RequestMapping(method = RequestMethod.GET)
+	//Metado finAll buscar todas as listas no BD.  ResponseEntity obj encapsula todas as resposta em HTTP
 	public ResponseEntity<List<UserDTO>> findAll() {
 		List<User> list = service.findAll();
 		List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());

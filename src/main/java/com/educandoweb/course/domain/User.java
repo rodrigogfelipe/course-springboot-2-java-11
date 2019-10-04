@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "user")
+@Document(collection = "user") /*collection = "user" nome da coleção do BD*/
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private String name;
 	private String email;
 
-	// Declarando a classe POST
+	// Em User, criar o atributo "posts", usando @DBRef 
 	@DBRef(lazy = true)
 	private List<Post> posts = new ArrayList<>();
 

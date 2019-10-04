@@ -1,7 +1,7 @@
 package com.educandoweb.course.resources.exception;
 
 import java.io.Serializable;
-
+/*StandardError */
 public class StandardError implements Serializable {
 
 	private static final long serialVersionUID = 1L;

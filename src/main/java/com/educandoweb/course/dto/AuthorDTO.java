@@ -1,3 +1,6 @@
+/*Usando padrão DTO para retornar usuários. DTO (Data Transfer Object): é um objeto que tem o papel de carregar dados das entidades 
+ * de forma simples, podendo inclusive "projetar" apenas alguns dados da entidade original.  Evitar que dados de interesse exclusivo 
+ * do sistema fiquem sendo expostos (por exemplo: senhas, dados de auditoria como data de criação e data de atualização do objeto, etc.)  */
 package com.educandoweb.course.dto;
 
 import java.io.Serializable;

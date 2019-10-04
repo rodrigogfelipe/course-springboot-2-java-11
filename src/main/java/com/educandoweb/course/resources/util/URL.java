@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+/*No subpacote resources.util, criar classe utilitária URL com um método para decodificar parâmetro de URL */
 public class URL {
 
 	public static String decodeParam(String text) {
@@ -16,7 +17,7 @@ public class URL {
 			return "";
 		}
 	}
-
+	/* criar métodos para tratar datas recebidas */
 	public static Date convertDate(String textDate, Date defaultValue) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));

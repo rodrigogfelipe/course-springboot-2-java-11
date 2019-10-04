@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.educandoweb.course.domain.Post;
 import com.educandoweb.course.resources.util.URL;
 import com.educandoweb.course.services.PostService;
-
+/*No subpacote resources, criar uma classe UserResource e implementar nela o endpoint GET padrão:*/ 
 @RestController
 @RequestMapping(value = "/posts")
 public class PostResource {

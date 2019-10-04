@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import com.educandoweb.course.domain.Post;
 import com.educandoweb.course.repository.PostRepository;
 import com.educandoweb.course.services.exception.ObjectNotFoundException;
-
+/*Em PostService, criar o método de busca */
 @Service
 public class PostService {
 	// Declarando o metado findAll retornado todos os obj do BD
 	@Autowired
 	private PostRepository repo;
 
-	// Declarando o metado findById caso os obj não seja encontrado no BD
+	// Em PostService, criar o método de consulta . Declarando o metado findById caso os obj não seja encontrado no BD
 	public Post findById(String id) {
 		Optional<Post> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));

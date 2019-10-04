@@ -13,16 +13,17 @@ import com.educandoweb.course.services.exception.ObjectNotFoundException;
 
 @Service
 public class UserService {
-	// Declarando o metado findAll retornado todos os obj do BD
+	// Instaciando o obj UserRepository
 	@Autowired
 	private UserRepository repo;
 
+	// findAll responsavel retorna todos os usuários no BD
 	public List<User> findAll() {
 		return repo.findAll();
 
 	}
 
-	// Declarando o metado findById caso os obj não seja encontrado no BD
+	// Declarando o metado findById caso os obj não seja encontrado no BD reternando null, lançando exceção
 	public User findById(String id) {
 		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
